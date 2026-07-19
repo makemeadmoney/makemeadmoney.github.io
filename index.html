@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>gray · adsense grid</title>
+
+  <!-- ========================================================= -->
+  <!--  GOOGLE ADSENSE AUTO ADS CODE (placed in <head> as instructed) -->
+  <!-- ========================================================= -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3737861554144850"
+     crossorigin="anonymous"></script>
+
+  <!-- Auto ads configuration: enable automatic placement -->
+  <script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+       google_ad_client: "ca-pub-3737861554144850",
+       enable_page_level_ads: true
+     });
+  </script>
+  <!-- ========================================================= -->
+
+  <style>
+    /* reset & base – pure gray, no distractions */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background: #888b8d;  /* neutral gray */
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .gray-screen {
+      background: #7f8285;
+      width: 100%;
+      min-height: 100vh;
+      padding: 18px 14px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ad-grid {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      justify-content: center;
+      align-content: start;
+    }
+
+    .ad-card {
+      background: #9a9ea1;
+      border-radius: 20px;
+      padding: 18px 14px 14px;
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.1), 0 6px 14px rgba(0,0,0,0.15);
+      border: 1px solid #6b6f72;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.1s ease;
+      min-height: 150px;
+    }
+
+    .ad-card:hover {
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.15), 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .ad-badge {
+      font-size: 9px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #d3d9de;
+      background: #5d6266;
+      padding: 2px 16px;
+      border-radius: 40px;
+      margin-bottom: 14px;
+      font-weight: 500;
+      user-select: none;
+      border: 1px solid #6f7478;
+      opacity: 0.7;
+    }
+
+    .adsense-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      min-height: 80px;
+    }
+
+    .adsense-wrap ins.adsbygoogle {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      background: transparent;
+    }
+
+    .ad-slot-display { width: 100%; min-height: 90px; }
+    .ad-slot-inarticle { width: 100%; min-height: 120px; }
+    .ad-slot-multiplex { width: 100%; min-height: 200px; }
+    .ad-slot-auto { width: 100%; min-height: 100px; }
+    .ad-slot-link { width: 100%; min-height: 80px; }
+
+    .ad-placeholder {
+      color: #a8b0b8;
+      font-size: 11px;
+      text-align: center;
+      padding: 14px 6px;
+      width: 100%;
+      background: #7e8387;
+      border-radius: 40px;
+      border: 1px dashed #6a7075;
+      display: none;
+    }
+
+    .gray-footer {
+      margin-top: 32px;
+      padding: 16px 0 6px;
+      font-size: 10px;
+      color: #b9c2ca;
+      text-align: center;
+      border-top: 1px solid #6e7377;
+      width: 100%;
+      max-width: 1300px;
+      letter-spacing: 0.3px;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 600px) {
+      .gray-screen { padding: 12px 8px 30px; }
+      .ad-card { padding: 14px 10px; min-height: 120px; }
+      .ad-badge { font-size: 8px; padding: 2px 12px; }
+    }
+
+    .adsense-wrap > * {
+      max-width: 100%;
+    }
+
+    /* GitHub Pages friendly: ensure full height */
+    .gray-screen {
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+  </style>
+</head>
+<body>
+  <div class="gray-screen">
+    <div class="ad-grid">
+
+      <!-- ===== AD 1 – display ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-display"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="1111111111"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 2 – in-article ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-inarticle"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="2222222222"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 3 – multiplex ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-multiplex"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="3333333333"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 4 – auto responsive ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-auto"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="4444444444"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 5 – display (second) ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-display"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="5555555555"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 6 – link / multiplex style ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-link"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="6666666666"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 7 – in-article (second) ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-inarticle"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="7777777777"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 8 – auto ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-auto"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="8888888888"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 9 – display (third) ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-display"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="9999999999"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+      <!-- ===== AD 10 – multiplex (second) ===== -->
+      <div class="ad-card">
+        <span class="ad-badge">▸ ad</span>
+        <div class="adsense-wrap">
+          <ins class="adsbygoogle ad-slot-multiplex"
+               style="display:block"
+               data-ad-client="ca-pub-3737861554144850"
+               data-ad-slot="1010101010"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <div class="ad-placeholder">ad</div>
+        </div>
+      </div>
+
+    </div> <!-- end ad-grid -->
+
+    <div class="gray-footer">
+      <span>● ● ●  google adsense · auto ads enabled  ● ● ●</span>
+    </div>
+  </div> <!-- end gray-screen -->
+
+  <script>
+    (function() {
+      console.log('⬛ gray ad screen · Auto Ads ENABLED · client: ca-pub-3737861554144850');
+      console.log('📦 ' + document.querySelectorAll('ins.adsbygoogle').length + ' manual ad units ready.');
+      console.log('⚡ Auto ads will also place ads automatically in optimal positions.');
+      console.log('⚠️  Replace the data-ad-slot values (e.g., "1111111111") with your actual AdSense slot IDs.');
+      console.log('⏳ It can take up to an hour for ads to appear.');
+      console.log('🚀 GitHub Pages ready — just push this file as index.html');
+    })();
+  </script>
+</body>
+</html>
