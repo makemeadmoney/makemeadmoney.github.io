@@ -2,193 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- AdSense Code -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+
+  <!-- ========================================================= -->
+  <!--  GOOGLE ADSENSE CODE (placed in <head> as required)        -->
+  <!--  Auto ads enabled for additional placements               -->
+  <!-- ========================================================= -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3737861554144850"
      crossorigin="anonymous"></script>
-  
+
+  <!-- Auto ads configuration -->
   <script>
      (adsbygoogle = window.adsbygoogle || []).push({
        google_ad_client: "ca-pub-3737861554144850",
        enable_page_level_ads: true
      });
   </script>
-  
-  <title>gray · consent wall + ads</title>
-  
+  <!-- ========================================================= -->
+
+  <title>gray · adsense grid</title>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+    /* reset & base – pure gray */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html, body {
       width: 100%;
       min-height: 100vh;
       background: #888b8d;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* ===== CONSENT OVERLAY - blocks everything until you choose ===== */
-    .consent-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(20, 22, 25, 0.92);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      padding: 20px;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-    }
-
-    .consent-overlay.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .consent-box {
-      background: #2d2f31;
-      max-width: 600px;
-      width: 100%;
-      padding: 40px 36px 32px;
-      border-radius: 28px;
-      border: 1px solid #4a4f54;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
-      text-align: center;
-    }
-
-    .consent-box h2 {
-      color: #f0f4fa;
-      font-weight: 500;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .consent-box p {
-      color: #b8c2cc;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-
-    .consent-box .site-name {
-      color: #8ab4f8;
-      font-weight: 500;
-      word-break: break-all;
-    }
-
-    .consent-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .consent-buttons .btn {
-      padding: 14px 20px;
-      border-radius: 60px;
-      font-size: 1rem;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: 0.15s;
-      width: 100%;
-      letter-spacing: 0.3px;
-    }
-
-    .btn-consent {
-      background: #1a73e8;
-      color: white;
-    }
-    .btn-consent:hover { background: #1557b0; }
-
-    .btn-decline {
-      background: #3b4045;
-      color: #e0e6ed;
-      border: 1px solid #5b6268;
-    }
-    .btn-decline:hover { background: #4a5056; }
-
-    .btn-manage {
-      background: transparent;
-      color: #b0b9c4;
-      border: 1px solid #4a4f54;
-      font-size: 0.9rem;
-    }
-    .btn-manage:hover { background: #3b4045; }
-
-    .consent-divider {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: #5b6268;
-      font-size: 0.75rem;
-      margin: 4px 0;
-    }
-    .consent-divider::before,
-    .consent-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #3f4449;
-    }
-
-    /* ===== MAIN PAGE - gray screen with ads ===== */
     .gray-screen {
       background: #7f8285;
       width: 100%;
       min-height: 100vh;
+      min-height: 100dvh;
       padding: 18px 14px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
+    /* ========================================================= */
+    /*  AD GRID – gray screen, bunch of ads                      */
+    /* ========================================================= */
     .ad-grid {
       max-width: 1300px;
       width: 100%;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 22px;
+      justify-content: center;
+      align-content: start;
     }
 
     .ad-card {
       background: #9a9ea1;
       border-radius: 20px;
       padding: 18px 14px 14px;
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.1), 0 6px 14px rgba(0,0,0,0.15);
       border: 1px solid #6b6f72;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 140px;
+      min-height: 150px;
+    }
+
+    .ad-card:hover {
+      box-shadow: inset 0 1px 3px rgba(255,255,255,0.15), 0 8px 20px rgba(0,0,0,0.2);
     }
 
     .ad-badge {
       font-size: 9px;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
       color: #d3d9de;
       background: #5d6266;
       padding: 2px 16px;
       border-radius: 40px;
       margin-bottom: 14px;
+      font-weight: 500;
+      user-select: none;
+      border: 1px solid #6f7478;
+      opacity: 0.7;
     }
 
     .adsense-wrap {
       width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
       min-height: 80px;
     }
+
     .adsense-wrap ins.adsbygoogle {
       display: block;
       width: 100%;
+      max-width: 100%;
+      background: transparent;
     }
 
-    .ad-slot-display { min-height: 90px; }
-    .ad-slot-inarticle { min-height: 120px; }
-    .ad-slot-multiplex { min-height: 200px; }
-    .ad-slot-auto { min-height: 100px; }
+    /* individual ad slot classes */
+    .ad-slot-display { width: 100%; min-height: 90px; }
+    .ad-slot-inarticle { width: 100%; min-height: 120px; }
+    .ad-slot-multiplex { width: 100%; min-height: 200px; }
+    .ad-slot-auto { width: 100%; min-height: 100px; }
+    .ad-slot-link { width: 100%; min-height: 80px; }
 
     .gray-footer {
       margin-top: 32px;
@@ -199,221 +125,290 @@
       border-top: 1px solid #6e7377;
       width: 100%;
       max-width: 1300px;
+      letter-spacing: 0.3px;
+      opacity: 0.5;
     }
 
-    @media (max-width: 500px) {
-      .consent-box { padding: 28px 20px 24px; }
-      .consent-box h2 { font-size: 1.2rem; }
-      .consent-buttons .btn { padding: 12px 16px; font-size: 0.9rem; }
+    @media (max-width: 600px) {
+      .gray-screen { padding: 12px 8px 30px; }
+      .ad-card { padding: 14px 10px; min-height: 120px; }
+      .ad-badge { font-size: 8px; padding: 2px 12px; }
+    }
+
+    .adsense-wrap > * {
+      max-width: 100%;
     }
   </style>
 </head>
 <body>
 
-  <!-- ========================================================== -->
-  <!--  CONSENT OVERLAY - blocks the page until you choose        -->
-  <!-- ========================================================== -->
-  <div class="consent-overlay" id="consentOverlay">
-    <div class="consent-box">
-      <h2>🍪 Consent required</h2>
-      <p>
-        <span class="site-name">makeemadehmoney.github.io</span> uses cookies
-        and collects data to show you personalized ads.
-        <br><br>
-        Choose an option below to continue.
-      </p>
-
-      <div class="consent-buttons">
-        <button class="btn btn-consent" onclick="acceptConsent()">
-          ✅ Consent
-        </button>
-        <button class="btn btn-decline" onclick="declineConsent()">
-          ✕ Do not consent
-        </button>
-        <div class="consent-divider">or</div>
-        <button class="btn btn-manage" onclick="manageConsent()">
-          ⚙️ Manage options
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================== -->
-  <!--  MAIN PAGE - gray screen with ads                         -->
-  <!-- ========================================================== -->
+  <!-- ========================================================= -->
+  <!--  MAIN PAGE – gray screen with ads                         -->
+  <!--  All ad units use the provided slot: 8072296200          -->
+  <!-- ========================================================= -->
   <div class="gray-screen">
     <div class="ad-grid">
 
-      <!-- AD 1 -->
+      <!-- ===== AD 1 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-display"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="1111111111"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 2 -->
+      <!-- ===== AD 2 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-inarticle"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="2222222222"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 3 -->
+      <!-- ===== AD 3 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-multiplex"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="3333333333"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 4 -->
+      <!-- ===== AD 4 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-auto"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="4444444444"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 5 -->
+      <!-- ===== AD 5 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-display"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="5555555555"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 6 -->
+      <!-- ===== AD 6 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-link"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="6666666666"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 7 -->
+      <!-- ===== AD 7 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-inarticle"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="7777777777"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 8 -->
+      <!-- ===== AD 8 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-auto"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="8888888888"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 9 -->
+      <!-- ===== AD 9 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-display"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="9999999999"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-      <!-- AD 10 -->
+      <!-- ===== AD 10 – using your provided ad unit code ===== -->
       <div class="ad-card">
         <span class="ad-badge">▸ ad</span>
         <div class="adsense-wrap">
           <ins class="adsbygoogle ad-slot-multiplex"
                style="display:block"
                data-ad-client="ca-pub-3737861554144850"
-               data-ad-slot="1010101010"
+               data-ad-slot="8072296200"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
       </div>
 
-    </div>
+    </div> <!-- end ad-grid -->
 
-    <div class="gray-footer">● ● ● google adsense ● ● ●</div>
+    <div class="gray-footer">
+      <span>● ● ●  google adsense · auto ads enabled  ● ● ●</span>
+    </div>
+  </div> <!-- end gray-screen -->
+
+  <!-- ========================================================= -->
+  <!--  CONSENT OVERLAY – 3-choice gate before entering site     -->
+  <!-- ========================================================= -->
+  <div class="consent-overlay" id="consentOverlay" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 22, 25, 0.92);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  ">
+    <div class="consent-box" style="
+      background: #2d2f31;
+      max-width: 600px;
+      width: 100%;
+      padding: 40px 36px 32px;
+      border-radius: 28px;
+      border: 1px solid #4a4f54;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      text-align: center;
+    ">
+      <h2 style="color: #f0f4fa; font-weight: 500; font-size: 1.5rem; margin-bottom: 10px;">🍪 Consent required</h2>
+      <p style="color: #b8c2cc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 28px;">
+        <span style="color: #8ab4f8; font-weight: 500;">makeemadehmoney.github.io</span> uses cookies
+        and collects data to show you personalized ads.
+        <br><br>
+        Choose an option below to continue.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <button class="btn btn-consent" onclick="acceptConsent()" style="
+          padding: 14px 20px;
+          border-radius: 60px;
+          font-size: 1rem;
+          font-weight: 500;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          background: #1a73e8;
+          color: white;
+          transition: 0.15s;
+        ">✅ Consent</button>
+
+        <button class="btn btn-decline" onclick="declineConsent()" style="
+          padding: 14px 20px;
+          border-radius: 60px;
+          font-size: 1rem;
+          font-weight: 500;
+          border: 1px solid #5b6268;
+          cursor: pointer;
+          width: 100%;
+          background: #3b4045;
+          color: #e0e6ed;
+          transition: 0.15s;
+        ">✕ Do not consent</button>
+
+        <div style="display: flex; align-items: center; gap: 14px; color: #5b6268; font-size: 0.75rem; margin: 4px 0;">
+          <span style="flex:1; height:1px; background:#3f4449;"></span>
+          or
+          <span style="flex:1; height:1px; background:#3f4449;"></span>
+        </div>
+
+        <button class="btn btn-manage" onclick="manageConsent()" style="
+          padding: 14px 20px;
+          border-radius: 60px;
+          font-size: 0.9rem;
+          font-weight: 500;
+          border: 1px solid #4a4f54;
+          cursor: pointer;
+          width: 100%;
+          background: transparent;
+          color: #b0b9c4;
+          transition: 0.15s;
+        ">⚙️ Manage options</button>
+      </div>
+    </div>
   </div>
 
-  <!-- ========================================================== -->
-  <!--  CONSENT HANDLERS                                          -->
-  <!-- ========================================================== -->
   <script>
+    // ==========================================================
+    //  CONSENT HANDLERS
+    // ==========================================================
     function acceptConsent() {
-      document.getElementById('consentOverlay').classList.add('hidden');
+      document.getElementById('consentOverlay').style.opacity = '0';
+      document.getElementById('consentOverlay').style.visibility = 'hidden';
+      document.getElementById('consentOverlay').style.pointerEvents = 'none';
       console.log('✅ User gave consent');
-      // In production, you'd store this choice (localStorage / cookie)
     }
 
     function declineConsent() {
-      document.getElementById('consentOverlay').classList.add('hidden');
+      document.getElementById('consentOverlay').style.opacity = '0';
+      document.getElementById('consentOverlay').style.visibility = 'hidden';
+      document.getElementById('consentOverlay').style.pointerEvents = 'none';
       console.log('❌ User declined consent');
-      // In production, you'd store this choice and respect it
     }
 
     function manageConsent() {
-      document.getElementById('consentOverlay').classList.add('hidden');
+      document.getElementById('consentOverlay').style.opacity = '0';
+      document.getElementById('consentOverlay').style.visibility = 'hidden';
+      document.getElementById('consentOverlay').style.pointerEvents = 'none';
       console.log('⚙️ User opened manage options');
-      // In production, you'd open a CMP settings panel
     }
 
     console.log('🔐 Consent wall active · client: ca-pub-3737861554144850');
     console.log('📦 ' + document.querySelectorAll('ins.adsbygoogle').length + ' ad units ready.');
-    console.log('⚠️  Replace data-ad-slot values with your actual AdSense slot IDs.');
+    console.log('✅ Using ad slot: 8072296200 (provided by you)');
     console.log('⏳ Ads may take up to an hour to appear.');
     console.log('🚀 GitHub Pages ready — push as index.html');
   </script>
